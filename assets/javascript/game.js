@@ -5,8 +5,6 @@ var remainingGuesses = 18;
 
 //Array of words for hangman
 var hangArray = ["sheriff", "outlaw", "jail", "robber", "gunslinger, wanted"];
-//array to select which word will be guessed
-//var theWord = hangArray[Math.floor(Math.random() * hangArray.length)];
 
 
 //empty arrays to hold letters that are guessed
@@ -15,6 +13,8 @@ var badGuess = [];
 
 
 var theWord = hangArray[Math.floor(Math.random() * hangArray.length)];
+
+
 //computer displays word with underscores 
 function startUp() {
     for (var i = 0; i < theWord.length; i++) {
@@ -42,8 +42,6 @@ document.onkeyup = function (event) {
             if (theWord[j] === guessedLetter) {
                 answerToGuess[j] = guessedLetter;
                     if (win()) {
-                        
-                        
                     }
             }
             if (guessedLetter !== theWord[j]) {
@@ -72,6 +70,7 @@ function win() {
 
     if (checkUserWord === checkCompWord) {
         alert("You Win!");
+        location.reload();
     }
 };
 
