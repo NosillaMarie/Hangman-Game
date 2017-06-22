@@ -41,6 +41,10 @@ document.onkeyup = function (event) {
         for (var j = 0; j < theWord.length; j++) {
             if (theWord[j] === guessedLetter) {
                 answerToGuess[j] = guessedLetter;
+                    if (win()) {
+                        
+                        
+                    }
             }
             if (guessedLetter !== theWord[j]) {
                 if (badGuess.indexOf(guessedLetter) === -1) {
@@ -49,7 +53,6 @@ document.onkeyup = function (event) {
                 document.getElementById("logged-guess").innerHTML = badGuess;  
                 }
             }
-  
             if (remainingGuesses === 0) {
                 var confirmAgain = confirm("Game Over! Would you like to play again?");
                 console.log(confirmAgain);
@@ -62,6 +65,16 @@ document.onkeyup = function (event) {
     document.getElementById("counter").innerHTML = "Guesses: " + remainingGuesses;
     document.getElementById("answer").innerHTML = answerToGuess.join(" ");
 };
+
+function win() {
+    var checkUserWord = answerToGuess.join("");
+    var checkCompWord = theWord;
+
+    if (checkUserWord === checkCompWord) {
+        alert("You Win!");
+    }
+};
+
 
 
 
