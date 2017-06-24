@@ -37,9 +37,11 @@ document.onkeyup = function (event) {
 
 
     if (guessedLetter.length > 0) {
-
+//        console.log("guessedLetter.lenght > 0"); 
         for (var j = 0; j < theWord.length; j++) {
+            console.log("j:" + j); 
             if (theWord[j] === guessedLetter) {
+//                console.log("theWord[j] == guessedLetter"); 
                 answerToGuess[j] = guessedLetter;
                     if (win()) {
                     }
@@ -67,7 +69,6 @@ document.onkeyup = function (event) {
 function win() {
     var checkUserWord = answerToGuess.join("");
     var checkCompWord = theWord;
-
     if (checkUserWord === checkCompWord) {
         alert("You Win!");
         location.reload();
